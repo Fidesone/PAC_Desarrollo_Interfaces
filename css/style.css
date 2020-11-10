@@ -1,0 +1,21 @@
+.title{
+    text-align: center;
+}
+
+#main{
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    background-color: burlywood;
+}
+#img{
+    padding: 40px;
+    position: absolute;
+}
+#adornar{
+
+}
+#mover{
+    
+}
