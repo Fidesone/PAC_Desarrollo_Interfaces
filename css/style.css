@@ -2,6 +2,14 @@
     text-align: center;
 }
 
+.ball{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 25px;
+    cursor: pointer;
+}
 #main{
     margin: auto;
     width: 500px;
@@ -10,12 +18,16 @@
     background-color: burlywood;
 }
 #img{
-    padding: 40px;
+    margin: 50px;
     position: absolute;
-}
-#adornar{
-
-}
-#mover{
     
 }
+
+
+
+ #increase{
+
+ }
+ #decrement{
+     
+ }
