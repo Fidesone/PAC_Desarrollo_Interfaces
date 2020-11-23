@@ -1,16 +1,30 @@
 $(document).ready(function(){
-    $("#add").click(function(){
+
+   
+    var ball=0;
+    var increase=0;
+
+    $("#add").click(function(){  
         
-        $("#main").append("<div class='ball'></div>")
-             
+       
+        $("#tree").append('<div class="ball" id="ball '+ ball+'"></div>')
+        $(".ball"+ ball).animate({"left": posX, "top": posY}, 2000);  
+        increase=increase + 1;
+        ball=ball + 1;
+        document.getElementById("increase").innerHTML = increase;
         });
         
+   
     });
-
-
-    function addball(){
-        var contador=0;
-    }
+    
+      
+function posX(ball){
+    posX=(Math.random() * 500) +1;
+}
+function posY(ball){
+    posY=(Math.random() * 500) +1;
+}
+    
 
     $('#remove').click(function(){
         $("#img").effect("shake")
@@ -20,7 +34,7 @@ $(document).ready(function(){
     var posX=0;
     var posY=0;
 
-    //llamada a las funciones
+    
 
 
 
@@ -29,10 +43,10 @@ $(document).ready(function(){
     function changeposition(){
         posX=(Math.random() * 500) + 1;
         posY= (Math.random() * 500) +1;
-        $("#bola").animate({"left": posX, "top":posY})
+        $(".ball").animate({"left": posX, "top":posY})
     }
 
-    //setInterval(changeposition, 2000);
+    setInterval(changeposition, 2000);
 })
 
 
