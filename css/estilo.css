@@ -1,0 +1,91 @@
+body {
+  
+  
+  text-align: center;
+  margin: 0;
+  height: 100%;
+  background-repeat: no-repeat;
+  
+  background-size: 100% 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+#tree {
+  width: 400px;
+  height: 400px;
+  background: url(../img/tree.png) no-repeat;
+  margin-top: 20px;
+  margin-left:500px;
+  position: relative;
+
+}
+
+.bola1 {
+  left: 150px;
+  top: -70px;
+  width: 32px;
+  height: 32px;
+  background-color: rgb(201, 45, 45);
+  border-radius : 32px;
+  position: absolute;
+}
+
+.bola2 {
+  left: 160px;
+  top: -50px;
+  width: 32px;
+  height: 32px;
+  background-color: rgb(211, 117, 200);
+  border-radius : 32px;
+  position: absolute;
+}
+
+.bola3 {
+  left: 185px;
+  top: -40px;
+  width: 32px;
+  height: 32px;
+  background-color: rgb(136, 235, 139);
+  border-radius : 32px;
+  position: absolute;
+}
+
+.bola4 {
+  left: 220px;
+  top: -60px;
+  width: 32px;
+  height: 32px;
+  background-color: rgb(221, 255, 0);
+  border-radius : 32px;
+  position: absolute;
+}
+
+.bola5 {
+  left: 200px;
+  top: -30px;
+  width: 32px;
+  height: 32px;
+  background-color: rgb(34, 0, 255);
+  border-radius : 32px;
+  position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
