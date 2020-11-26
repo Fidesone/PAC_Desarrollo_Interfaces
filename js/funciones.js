@@ -47,9 +47,20 @@ $(document).ready(function(){
     
     $("#add").click(function(){
         ponerAdorno();
+
+
     }); 
     $("#remove").click(function(){
-       quitarAdorno();
+
+      if ( contador == 0 && eliminadas==0){
+        window.alert("Debes introducir un adorno primero")
+         
+      } else if( contador==0 && eliminadas> 0){ 
+        window.alert("Debes introducir un adorno primero")
+
+      
+        } else {quitarAdorno() }
+       
     });
 
 });  
