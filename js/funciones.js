@@ -11,16 +11,9 @@ $(document).ready(function(){
     var arrBolas = [];
     var nieve = 0;
 
-    function minieve(){
 
-      $.fn.snow();
-
-    }
-
-    function stopnieve(){
-      
-    }
-
+    // Lo que queremos hacer aquí es que las bolas se coloquen aleatoriamente dentro del arbol. Para ello hacemos un if-else.
+    
     function ponerAdorno(){
         posX = (Math.random() * (300 - 30)) + 30;   
         if (posX <=300 && posX >=245) {
@@ -35,6 +28,8 @@ $(document).ready(function(){
         
         claseBola = Math.floor(Math.random() * 5 + 1);
 
+        // Creamos un div con un id diferente cada vez (cont) para que no se cree el mismo div todo el rato
+
         $("#tree").append('<div class="bola'+claseBola+'" id="bola'+cont+'"></div>');
         $("#bola"+cont).animate({left: posY, top: posX}, 1000);
         arrBolas.push("bola"+cont);
@@ -42,6 +37,7 @@ $(document).ready(function(){
         cont = cont + 1;
         document.getElementById("contador").innerHTML = contador;
     }
+      //de esta manera estamos "sacudiendo" el arbol para que las bolas caigan al suelo
 
     function quitarAdorno(){
         $("#tree").effect("shake", {times:5}, 500);
@@ -51,6 +47,7 @@ $(document).ready(function(){
         document.getElementById("contador").innerHTML = 0;
         arrBolas.forEach(tirarBolas);
     }
+    // con esta funcion tiramos las bolas al suelo, y finalmente las esconde con .hide
 
     function tirarBolas(item, index){
       posY = (Math.random() * (320 - 70)) + 70;
@@ -58,15 +55,44 @@ $(document).ready(function(){
       $("#"+item).hide( "explode", {pieces: 24 }, 1000 );
     }
     
+    window.addEventListener("load", function(){
+      document.getElementById("musica").addEventListener("click", sonarMusica);
+      document.getElementById("musica").addEventListener("click", quitarMusica);
+    });
+
+    
+      // Le hemos añadido un boton de "musica" para darle un poco de ambiente navideño
+
+    function sonarMusica(){
+      var sonido= document.createElement("iframe");
+      sonido.setAttribute("src", "audio/adeste_fideles.mp3")
+      document.body.appendChild(sonido);
+      document.getElementById("musica").removeEventListener("click", sonarMusica);
+    }
+     function quitarMusica (){
+
+       var iframe = document.getElementsByTagName("iframe");
+
+       if (iframe.length > 0){
+        iframe[0].parentNode.removeChild(iframe[0]);
+        document.getElementById("musica").addEventListener("click", sonarMusica);
+      }
+
+     }
+
+
+
+    // las funciones.click llaman a otras funciones al darle click a los botones donde están situadas
+
     $("#add").click(function(){
         ponerAdorno();
-        minieve();
+        
     
     }); 
 
     $("#remove").click(function(){
 
-      stopnieve();
+      //Creo una alerta para que no se pueda mover el arbol sino contiene adornos.
 
       if ( contador == 0 && eliminadas==0){
         window.alert("Debes introducir un adorno primero")
@@ -83,8 +109,8 @@ $(document).ready(function(){
 
 
 
-    // jQuery Snow Effect Plugin
     
- (function($){$.fn.snow=function(options){var $flake=$('<div id="flake" />').css({'position':'absolute','top':'-50px'}).html('&#10052;'),documentHeight=$(document).height(),documentWidth=$(document).width(),defaults={minSize:10,maxSize:20,newOn:500,flakeColor:"#FFFFFF"},options=$.extend({},defaults,options);var interval=setInterval(function(){var startPositionLeft=Math.random()*documentWidth-100,startOpacity=0.5+Math.random(),sizeFlake=options.minSize+Math.random()*options.maxSize,endPositionTop=documentHeight-40,endPositionLeft=startPositionLeft-100+Math.random()*200,durationFall=documentHeight*10+Math.random()*5000;$flake.clone().appendTo('body').css({left:startPositionLeft,opacity:startOpacity,'font-size':sizeFlake,color:options.flakeColor}).animate({top:endPositionTop,left:endPositionLeft,opacity:0.2},durationFall,'linear',function(){$(this).remove()});},options.newOn);};})(jQuery);
+    
+ 
 
 });  
